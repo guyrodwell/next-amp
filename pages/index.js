@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head'
 import { useAmp } from 'next/amp';
 
 import Layout from '../components/Layout';
@@ -11,6 +12,9 @@ const Home = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Home</title>
+      </Head>
       <App isAmp={isAmp} />
     </Layout>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 const AppWrapper = styled.div`
   min-height: 100vh;
@@ -7,9 +8,9 @@ const AppWrapper = styled.div`
 
   img {
     border-radius: 20px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     width: 100%;
-    margin-bottom: .3rem;
+    margin-bottom: 0.3rem;
   }
 `;
 
@@ -21,27 +22,91 @@ const App = ({ isAmp }) => (
       incididunt veniam. Ea eiusmod labore sint et nisi aute sit Lorem sit ex
       velit consequat et cillum.
     </p>
-    {!isAmp && (
-      <figure>
-        <img
-          srcset="/cav-pup-640.jpg 640w,
-                  /cav-pup-768.jpg 768w,
-                  /cav-pup-1024.jpg 1024w,
-                  /cav-pup-1366.jpg 1366w,
-                  /cav-pup-1600.jpg 1600w,
-                  /cav-pup-1920.jpg 1920w"
-          sizes="(max-width: 640px) 640px,
-                 (max-width: 768px) 768px,
-                 (max-width: 1024px) 1024px,
-                 (max-width: 1366px) 1366px,
-                 (max-width: 1600px) 1600px,
-                 1920px"
-          src="/cav-pup-1920.jpg"
+    <figure>
+      {isAmp ? (
+        <amp-img
+          src="/cav-pup-640.jpg"
+          width="640"
+          height="427"
           alt="Cavalier puppy. Photo by Hannah Oliver on Unsplash."
-        />
-        <figcaption>This pupper did something cute.</figcaption>
-      </figure>
-    )}
+          layout="responsive"
+        ></amp-img>
+      ) : (
+        <picture>
+          <source
+            media="(max-width: 640px)"
+            srcSet="/cav-pup-640.webp"
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 640px)"
+            srcSet="/cav-pup-640.jpg"
+            type="image/jpeg"
+          />
+
+          <source
+            media="(max-width: 768px)"
+            srcSet="/cav-pup-768.webp"
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 768px)"
+            srcSet="/cav-pup-768.jpg"
+            type="image/jpeg"
+          />
+
+          <source
+            media="(max-width: 1024px)"
+            srcSet="/cav-pup-1024.webp"
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 1024px)"
+            srcSet="/cav-pup-1024.jpg"
+            type="image/jpeg"
+          />
+
+          <source
+            media="(max-width: 1366px)"
+            srcSet="/cav-pup-1366.webp"
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 1366px)"
+            srcSet="/cav-pup-1366.jpg"
+            type="image/jpeg"
+          />
+
+          <source
+            media="(max-width: 1600px)"
+            srcSet="/cav-pup-1600.webp"
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 1600px)"
+            srcSet="/cav-pup-1600.jpg"
+            type="image/jpeg"
+          />
+
+          <source
+            media="(max-width: 1920px)"
+            srcSet="/cav-pup-1920.webp"
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 1920px)"
+            srcSet="/cav-pup-1920.jpg"
+            type="image/jpeg"
+          />
+
+          <img
+            src="/cav-pup-1920.jpg"
+            alt="Cavalier puppy. Photo by Hannah Oliver on Unsplash."
+          />
+        </picture>
+      )}
+      <figcaption>This pupper did something cute.</figcaption>
+    </figure>
     <p>
       Consectetur cupidatat ad elit veniam et et amet consequat aliqua deserunt.
       Irure ullamco voluptate nulla eiusmod labore nisi laboris minim id. Ex eu

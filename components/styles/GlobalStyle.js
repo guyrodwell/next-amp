@@ -20,20 +20,17 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
   }
   h1 {
-    color: #fa8334;
+    color: #8334fa;
     letter-spacing: 2px;
-  }
-  p {
-    color: ${lighten(.2, '#000')};
   }
   figcaption {
     font-size: .8rem;
     text-align: center;
     font-style: italic;
-    color: ${lighten(.5, '#000')};
   }
   p, figcaption {
     font-weight: 300;
+    color: ${lighten(.2, '#000')};
   }
 `;
 

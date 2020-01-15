@@ -1,4 +1,4 @@
-import Document from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
@@ -25,5 +25,28 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render() {
+    return (
+      <Html lang="en-GB">
+        <Head>
+          <meta
+            name="description"
+            content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit sit ut quibusdam at quia quaerat voluptatum totam qui non est vitae aliquam neque harum."
+          />
+          <link rel="icon" href="/favicon.ico" />
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,700&display=swap"
+            rel="stylesheet"
+          />
+          <script async src="https://cdn.ampproject.org/v0.js" />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }
